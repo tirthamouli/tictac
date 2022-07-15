@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  margin-bottom: 5rem;
+  font-size: 5rem;
+  font-weight: lighter;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+
+.btn {
+  background-color: transparent;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border: 3px solid;
+  font-weight: bold;
+  margin: 0 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn.btn-first:hover {
+  background-color: rgba(0, 145, 255, 0.5);
+}
+
+.btn.btn-second:hover {
+  background-color: rgba(255, 87, 51, 0.5);
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  border: 2px solid;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell-0-0,
+.cell-0-1,
+.cell-0-2 {
+  border-top: none;
+}
+
+.cell-2-0,
+.cell-2-1,
+.cell-2-2 {
+  border-bottom: none;
+}
+
+.cell-0-2,
+.cell-1-2,
+.cell-2-2 {
+  border-right: none;
+}
+
+.cell-0-0,
+.cell-1-0,
+.cell-2-0 {
+  border-left: none;
+}
+
+.cell button {
+  width: 7rem;
+  height: 7rem;
+  font-size: 3rem;
+  font-weight: 900;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.cell button:empty:hover {
+  background-color: rgba(63, 166, 0, 0.5);
+  cursor: pointer;
+}
+
+.first {
+  color: #0091FF;
+}
+
+.second {
+  color: #FF5733;
+}
