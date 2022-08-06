@@ -30,6 +30,13 @@ class TicTacToeGame extends TicTacToe {
   gameStatus;
 
   /**
+   * An end state callback
+   *
+   * @type {(message: 'Won' | 'Lost' | 'Draw') => void}
+   */
+  endStateCB;
+
+  /**
    * Construct a new Tic Tac Toe Game
    *
    * @param {1 | 2} userPlayer
@@ -106,17 +113,21 @@ class TicTacToeGame extends TicTacToe {
    */
   checkReachedEndState = (row, col) => {
     // Check if won
-    // @todo: Update the way won is displayed
     const won = this.checkIfWon(row, col);
     if (won) {
-      setTimeout(() => alert('WON'));
+      if (this.currentPlayer === this.userPlayer) {
+        this.endStateCB?.('Lost');
+      } else {
+        // Should never reach here :P
+        this.endStateCB?.('Won');
+      }
       return true;
     }
 
     // Check if draw
     const draw = this.checkIfCompleted();
     if (draw) {
-      setTimeout(() => alert('DRAW'));
+      this.endStateCB?.('Draw');
       return true;
     }
 
@@ -176,6 +187,15 @@ class TicTacToeGame extends TicTacToe {
 
     // Play AI turn
     this.playAITurn();
+  };
+
+  /**
+   * Register a callback for when the end state is reached
+   *
+   * @param {(message: 'Won' | 'Lost' | 'Draw') => void} endStateCB
+   */
+  onEndState = (endStateCB) => {
+    this.endStateCB = endStateCB;
   };
 
   /**

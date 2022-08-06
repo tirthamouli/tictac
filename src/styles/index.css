@@ -28,6 +28,7 @@ h1 {
 }
 
 #app {
+  position: relative;
   display: flex;
   justify-content: center;
   margin-bottom: 5rem;
@@ -110,4 +111,47 @@ h1 {
 
 .second {
   color: #FF5733;
+}
+
+.status {
+  display: flex;
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  font-weight: bolder;
+  text-shadow: 2px 2px 5px black;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  transform: scale(0);
+  transition: all 0.5s ease-in-out;
+}
+
+.status.status-show {
+  transform: scale(1);
+}
+
+.tictac {
+  transition: all 0.5s ease-in-out;
+}
+
+.status.status-show + .tictac {
+  filter: blur(100px);
+  transition: all 10s ease-in-out;
+}
+
+.status-won {
+  background-color: rgba(84, 204, 80, 0.1);
+  color: rgb(84, 204, 80);
+}
+
+.status-lost {
+  background-color: rgba(204, 80, 80, 0.1);
+  color: rgb(204, 80, 80);
+}
+
+.status-draw {
+  background-color: rgba(204, 109, 80, 0.1);
+  color: rgb(204, 109, 80);
 }
