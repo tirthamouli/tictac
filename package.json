@@ -5,7 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "webpack serve --hot --open",
-    "build": "webpack"
+    "build": "webpack",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
